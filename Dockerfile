@@ -1,5 +1,5 @@
 FROM \
-    ssidk/bifrost-base:2.0
+    ssidk/bifrost-base:2.0.5
 
 LABEL \
     name="bifrost-ariba_virulencefinder" \
@@ -9,8 +9,7 @@ LABEL \
     maintainer="kimn@ssi.dk;"
 
 RUN \
-    apt-get update -qq --fix-missing; \
-    apt-get install -y -qq ariba=2.13.3+ds-1; \
+    conda install -yq -c conda-forge -c bioconda -c defaults ariba==2.13.3; \
     # In base image
     cd /bifrost_resources; \
     mkdir virulencefinder; \
@@ -19,4 +18,6 @@ RUN \
     ariba prepareref -f virulencefinder.fa -m virulencefinder.tsv ref_db;
 
 ENTRYPOINT \
-    ["/bifrost_resources/docker_umask_002.sh"]
+    [ "/bifrost/whats_my_species/launcher.py"]
+CMD \
+    [ "/bifrost/whats_my_species/launcher.py", "--help"]

@@ -1,23 +1,29 @@
 #-Basic info----------------------------------------------------------------------------------------
-name: ariba_virulencefinder
-version: 2.0.7
+display_name: ariba_virulencefinder
+name: &name ariba_virulencefinder__unspecified__unspecified
+version:
+  schema: 2.0
+  code: unspecified
+  resource: unspecified
 #---------------------------------------------------------------------------------------------------
 
 #-Details-------------------------------------------------------------------------------------------
 details:
-  category: virulence
-  schema_version: 2.0
   target: sample
-  type: pipeline
-  recommendation: recommended
   description: >
     This preforms read based mapping against the virulencefinder DB's. The options show the species entries 
     which will be attempted for mlst with key originating from the species DB. This is done against 
     the cge_db using ariba.
 #---------------------------------------------------------------------------------------------------
 
-#-Docker location-----------------------------------------------------------------------------------
-dockerfile: &dockerfile "docker://ssidk/bifrost-ariba_virulencefinder:2.0.7"
+#-Category info-------------------------------------------------------------------------------------
+category: [virulence]
+#---------------------------------------------------------------------------------------------------
+
+#-Install-------------------------------------------------------------------------------------------
+install:
+  path: # Set by install program
+  dockerfile: docker://ssidk/bifrost_ariba_virulencefinder:unspecified__unspecified
 #---------------------------------------------------------------------------------------------------
 
 #-Options-------------------------------------------------------------------------------------------
@@ -26,7 +32,7 @@ options:
 
 #-Required resource files---------------------------------------------------------------------------
 resources:
-  database_path: "/bifrost_resources/virulencefinder/ref_db/"
+  database_path: "/bifrost_ariba_virulencefinder/resources/virulencefinder/ref_db/"
 #---------------------------------------------------------------------------------------------------
 
 #-Requirements to run component---------------------------------------------------------------------
@@ -59,7 +65,7 @@ db_values_changes:
     report:
       virulence:
         title: Virulence
-        info: *dockerfile
+        info: *name
         columns:  # headers, these values are statically present in datadump
           - {id: "gene", name: "gene"}
           - {id: "coverage", name: "%cov"}

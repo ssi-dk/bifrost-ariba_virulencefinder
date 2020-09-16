@@ -1,7 +1,7 @@
 # This is intended to run in Github Actions
 # Arg can be set to dev for testing purposes
 ARG BUILD_ENV="prod"
-ARG NAME="bifrost_cge_resfinder"
+ARG NAME="bifrost_ariba_virulencefinder"
 ARG CODE_VERSION="unspecified"
 ARG RESOURCE_VERSION="200722"
 ARG MAINTAINER="kimn@ssi.dk"

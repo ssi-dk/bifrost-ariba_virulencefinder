@@ -62,7 +62,7 @@ RUN \
 #- Additional resources (files/DBs): end -----------------------------------------------------------
 
 #- Set up entry point:start ------------------------------------------------------------------------
-ENV PATH /bifrost/${name}/:$PATH
-ENTRYPOINT ["launcher.py"]
-CMD ["launcher.py", "--help"]
+ONBUILD WORKDIR ${NAME}
+ENTRYPOINT ["python3", "-m", "bifrost_ariba_virulencefinder"]
+CMD ["python3", "-m", "bifrost_ariba_virulencefinder", "--help"]
 #- Set up entry point:end --------------------------------------------------------------------------

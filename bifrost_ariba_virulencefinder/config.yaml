@@ -1,10 +1,10 @@
 #-Basic info----------------------------------------------------------------------------------------
 display_name: ariba_virulencefinder
-name: &name ariba_virulencefinder__unspecified__unspecified
+name: &name ariba_virulencefinder__2.1.0__200722
 version:
   schema: 2.0
-  code: unspecified
-  resource: unspecified
+  code: 2.1.0
+  resource: 200722
 #---------------------------------------------------------------------------------------------------
 
 #-Details-------------------------------------------------------------------------------------------
@@ -23,7 +23,7 @@ category: [virulence]
 #-Install-------------------------------------------------------------------------------------------
 install:
   path: # Set by install program
-  dockerfile: docker://ssidk/bifrost_ariba_virulencefinder:unspecified__unspecified
+  dockerfile: docker://ssidk/bifrost_ariba_virulencefinder
 #---------------------------------------------------------------------------------------------------
 
 #-Options-------------------------------------------------------------------------------------------
